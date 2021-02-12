@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddressBook Lab 4</title>
+</head>
+<body>
+<h1>Create/View AddressBook</h1>
+<form action="#" th:action="@{/makeAddressBook}" th:object="${addressBook}" method="post">
+    <p><input type="submit" value="Submit" /></p>
+</form>
+
+<p type="text" th:field="*{addressBook}":></p>
+
+<h1>Create Buddy</h1>
+<form action="#" th:action="@{/addBuddy}" th:object="${buddy}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Phone Number: <input type="text" th:field="*{number}" /></p>
+    <p><input type="submit" value="Submit" />
+</form>
+</body>
+</html>

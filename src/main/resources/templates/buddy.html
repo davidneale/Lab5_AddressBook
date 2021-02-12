@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BuddyInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Buddy Name: ' + ${buddy.name}"></p>
+    <p th:text="'Buddy Number: ' + ${buddy.number}"></p>
+
+    <a href="/hello">Return</a>
+</body>
+</html>
