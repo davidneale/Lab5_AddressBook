@@ -1,6 +1,4 @@
 language: java
-jdk:
- - oraclejdk13
  deploy:
  provider: heroku
  api-key: 
@@ -10,5 +8,3 @@ on:
  branch: main
  dist: trusty
 
-before_install:
-  - chmod +x mvnw
