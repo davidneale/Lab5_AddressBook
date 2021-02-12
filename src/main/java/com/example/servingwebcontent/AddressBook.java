@@ -13,6 +13,7 @@ public class AddressBook{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    //test comment
     public AddressBook() {}
 
     public AddressBook(Long id) {
