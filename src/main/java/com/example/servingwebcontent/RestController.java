@@ -25,14 +25,15 @@ public class RestController {
 
     @GetMapping("/hello")
     public String greeting(Model model){
-        model.addAttribute("addressBook", new AddressBook(3L));
+        model.addAttribute("addressBook", new AddressBook());
         model.addAttribute("buddy", new BuddyInfo());
+        model.addAttribute("addressBook");
         return "hello";
     }
 
     @PostMapping("/addBuddy")
     public String addBuddy(@ModelAttribute("buddy") BuddyInfo buddy){
-        AddressBook book = bookRepo.findById(3L).orElse(new AddressBook(3L));
+        AddressBook book = bookRepo.findAddressBookById(3L);
         book.addBuddy(buddy);
         buddyRepo.save(buddy);
         bookRepo.save(book);
@@ -41,8 +42,11 @@ public class RestController {
 
     @PostMapping("/makeAddressBook")
     public String makeAddressBook(Model model){
-        AddressBook addressBook = bookRepo.findById(3L).orElse(new AddressBook(3L));
-        model.addAttribute("addressBook", addressBook);
+        AddressBook addressBook = new AddressBook(3L);
+        model.addAttribute("addressBook", addressBook );
+        bookRepo.save(addressBook);
+        //AddressBook addressBook = bookRepo.findById(3L);
+
         return "addressBook";
     }
 

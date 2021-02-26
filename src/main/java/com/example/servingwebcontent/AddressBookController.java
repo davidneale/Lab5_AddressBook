@@ -23,7 +23,7 @@ public class AddressBookController {
 
     @RequestMapping(value="/addressBook", method= RequestMethod.GET)
     public AddressBook getAddressBook(@RequestParam("id") Long id){
-        return repo.findById(id).orElse(new AddressBook());
+        return repo.findAddressBookById(id);
     }
 
 }

@@ -20,14 +20,14 @@ public class BuddyInfoController {
 
     @GetMapping("/buddy")
     public BuddyInfo getBuddy(@RequestParam(value = "bookId", defaultValue = "3L") Long bookId, @RequestParam("buddyId") Long buddyId){
-        AddressBook book = bookRepo.findById(bookId).orElse(new AddressBook(3L));
+        AddressBook book = bookRepo.findAddressBookById(bookId);
         int index = buddyId.intValue() - 1;
         return book.getElementAt(index);
     }
 
     @PostMapping("/buddy")
     public BuddyInfo addBuddy(@RequestBody BuddyInfo buddy,@RequestParam(value = "bookId", defaultValue = "3L") Long bookId){
-        AddressBook book = bookRepo.findById(bookId).orElse(new AddressBook(3L));
+        AddressBook book = bookRepo.findAddressBookById(bookId);
         book.addBuddy(buddy);
         buddyRepo.save(buddy);
         bookRepo.save(book);

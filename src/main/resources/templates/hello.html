@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>AddressBook Lab 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="hello.js"></script>
 </head>
 <body>
 <h1>Create/View AddressBook</h1>
@@ -11,7 +13,8 @@
     <p><input type="submit" value="Submit" /></p>
 </form>
 
-<p type="text" th:field="*{addressBook}":></p>
+<p class="addressbook-id"></p>
+<p class="addressbook-contents"></p>
 
 <h1>Create Buddy</h1>
 <form action="#" th:action="@{/addBuddy}" th:object="${buddy}" method="post">
